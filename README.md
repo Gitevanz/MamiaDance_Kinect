@@ -7,13 +7,9 @@ Paths
 
 
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_cnn_infer64_8.dll
-
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_ops_infer64_8.dll
-
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cufft64_10.dll
-
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cublasLt64_11.dll
-
 /Dance_project/Assets/Addons/AzureKinect/Plugins/onnxruntime_providers_cuda.dll
 /Dance_project/Assets/Addons/AzureKinect/Plugins/dnn_model_2_0_op11.onnx
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cublas64_11.dll
