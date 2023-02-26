@@ -5,7 +5,6 @@ https://drive.google.com/file/d/10StBGEP0gVn4i-DMtSP-drM61ppqu9xF/view?usp=shari
 
 Paths
 
-
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_cnn_infer64_8.dll
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_ops_infer64_8.dll
 /Dance_project/Assets/Addons/AzureKinect/Plugins/cufft64_10.dll
