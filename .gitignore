@@ -2,16 +2,34 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+/Dance_project/[Ll]ibrary/
+/Dance_project/[Tt]emp/
+/Dance_project/[Oo]bj/
+/Dance_project/[Bb]uild/
+/Dance_project/[Bb]uilds/
+/Dance_project/[Ll]ogs/
+/Dance_project/[Mm]emoryCaptures/
+/Dance_project/cudnn_cnn_infer64_8.dll
+/Dance_project/cudnn_ops_infer64_8.dll
+/Dance_project/cufft64_10.dll
+/Dance_project/cublasLt64_11.dll
+/Dance_project/onnxruntime_providers_cuda.dll
+/Dance_project/dnn_model_2_0_op11.onnx
+/Dance_project/cublas64_11.dll
+
+
+/Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_cnn_infer64_8.dll
+/Dance_project/Assets/Addons/AzureKinect/Plugins/cudnn_ops_infer64_8.dll
+/Dance_project/Assets/Addons/AzureKinect/Plugins/cufft64_10.dll
+/Dance_project/Assets/Addons/AzureKinect/Plugins/cublasLt64_11.dll
+/Dance_project/Assets/Addons/AzureKinect/Plugins/onnxruntime_providers_cuda.dll
+/Dance_project/Assets/Addons/AzureKinect/Plugins/dnn_model_2_0_op11.onnx
+/Dance_project/Assets/Addons/AzureKinect/Plugins/cublas64_11.dll
+
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+!/Dance_project/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
