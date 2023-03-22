@@ -1069,6 +1069,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoneWings_Test_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6718810995328590171, guid: a200f26e727a7ba4f8bdffe3f771c987,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a200f26e727a7ba4f8bdffe3f771c987, type: 3}
 --- !u!1001 &8080272905363436747
