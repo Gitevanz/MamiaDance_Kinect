@@ -6,6 +6,7 @@ public class Shader_Controller : MonoBehaviour
 {
     // Initiate the input that QLC will communicate with
     public List<MaterialData> materialList;
+    private MaterialData mat;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,19 +19,20 @@ public class Shader_Controller : MonoBehaviour
     {
         for (int i = 0; i < materialList.Count; i++)
         {
-            materialList[i].material.SetColor("_1_color", materialList[i].color1);
-            materialList[i].material.SetColor("_2_color", materialList[i].color2);
-            materialList[i].material.SetFloat("_roughness", materialList[i].roughness);
-            materialList[i].material.SetFloat("_time", materialList[i].localtime);
-            if (materialList[i].images[materialList[i].imageIndex] != null)
+            mat = materialList[i];
+            mat.material.SetColor("_1_color", mat.color1);
+            mat.material.SetColor("_2_color", mat.color2);
+            mat.material.SetFloat("_roughness", mat.roughness);
+            if (mat.images.Count < mat.imageIndex && mat.imageIndex < -1)
             {
-                materialList[i].material.SetTexture("_image", materialList[i].images[materialList[i].imageIndex]);
+                mat.material.SetTexture("_image", mat.images[mat.imageIndex]);
             }
-            materialList[i].material.SetFloat("_control", materialList[i].control);
+            mat.material.SetFloat("_control", mat.control);
 
 
             // Time keeping for each material
-            materialList[i].localtime += materialList[i].speed * Time.deltaTime;
+            mat.localtime += mat.speed * Time.deltaTime;
+            mat.material.SetFloat("_time", mat.localtime);
         }
     }
     private void OnValidate()
