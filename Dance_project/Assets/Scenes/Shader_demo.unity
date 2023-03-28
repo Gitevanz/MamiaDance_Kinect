@@ -253,19 +253,19 @@ MonoBehaviour:
   materialList:
   - name: Background_demo_material
     material: {fileID: 2100000, guid: f13d75180068ff5439db85900cf5c087, type: 2}
-    color1: {r: 1, g: 0, b: 0, a: 0}
-    color2: {r: 0.24619699, g: 1, b: 0, a: 0}
-    roughness: 0
+    color1: {r: 0.7830189, g: 0.21791564, b: 0.61208445, a: 0}
+    color2: {r: 0, g: 0.3513453, b: 1, a: 0}
+    smoothness: 0
     speed: 1
     imageIndex: 0
     images: []
     control: 0
     localtime: 0
-  - name: Wave Material
-    material: {fileID: 2100000, guid: 05a0b92e6fbde2e439a287795130bfa2, type: 2}
+  - name: Default Material
+    material: {fileID: 2100000, guid: 7c2930fb7b4d40a40be7be881e4a3d0f, type: 2}
     color1: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 0}
     color2: {r: 0.2799039, g: 0.36991107, b: 0.6981132, a: 0}
-    roughness: 0
+    smoothness: 0
     speed: 1
     imageIndex: 0
     images: []
@@ -275,7 +275,7 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: fdeba2e7ca707ca4f9308dd821f87b72, type: 2}
     color1: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 0}
     color2: {r: 0.2799039, g: 0.36991107, b: 0.6981132, a: 0}
-    roughness: 1.17
+    smoothness: 0
     speed: 1
     imageIndex: 0
     images:
@@ -561,7 +561,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05a0b92e6fbde2e439a287795130bfa2, type: 2}
+  - {fileID: 2100000, guid: 7c2930fb7b4d40a40be7be881e4a3d0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

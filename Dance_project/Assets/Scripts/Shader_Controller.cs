@@ -22,8 +22,9 @@ public class Shader_Controller : MonoBehaviour
             mat = materialList[i];
             mat.material.SetColor("_1_color", mat.color1);
             mat.material.SetColor("_2_color", mat.color2);
-            mat.material.SetFloat("_roughness", mat.roughness);
-            if (mat.images.Count < mat.imageIndex && mat.imageIndex < -1)
+            mat.material.SetFloat("_smoothness", mat.smoothness);
+            Debug.Log(mat.images.Count);
+            if (mat.images.Count > mat.imageIndex && mat.imageIndex > -1)
             {
                 mat.material.SetTexture("_image", mat.images[mat.imageIndex]);
             }
@@ -39,7 +40,8 @@ public class Shader_Controller : MonoBehaviour
     {
         for (int i = 0; i < materialList.Count; i++)
         {
-            materialList[i].name = materialList[i].material.name;
+            mat = materialList[i];
+            mat.name = mat.material.name;
         }
     }
 
@@ -50,7 +52,7 @@ public class Shader_Controller : MonoBehaviour
         public Material material; // Input for the material to control
         public Color color1; // Primary color control
         public Color color2; // Secondary color control
-        public float roughness; // Roughness control
+        public float smoothness; // Roughness control
         public float speed; // Change speed of shader's local time
         public int imageIndex; // Choose which image to use in shader
         public List<Texture> images; // Input images

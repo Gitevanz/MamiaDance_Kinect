@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wave Material
-  m_Shader: {fileID: -6465566751694194690, guid: c8b420756bf242a43bb27d943b14d149,
+  m_Name: Default Material
+  m_Shader: {fileID: -6465566751694194690, guid: e38845c173b6b79418d21e4eb073eeaf,
     type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -112,6 +112,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _image:
+        m_Texture: {fileID: 2800000, guid: 18775b51e3bd42299fd30bd036ea982f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -126,6 +130,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _1_color: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -240,11 +245,14 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 0
+    - _control: 1
+    - _image: 0
     - _smoothness: 0
-    - _time: 106.50937
+    - _time: 24.869934
     m_Colors:
     - _1_color: {r: 0.8867924, g: 0.11294055, b: 0.11294055, a: 0}
-    - _2_color: {r: 0.2799039, g: 0.36991107, b: 0.6981132, a: 0}
+    - _1_color_Asset: {r: 0, g: 0, b: 0, a: 0}
+    - _2_color: {r: 0.69803923, g: 0.51518816, b: 0.2784314, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -262,7 +270,7 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2062600782390464777
+--- !u!114 &8821648977272190504
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
