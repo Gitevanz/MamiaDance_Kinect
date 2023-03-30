@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3225511874275735025
+--- !u!1 &4523762462583914477
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3225511874275735039}
-  - component: {fileID: 3225511874275735038}
+  - component: {fileID: 4523762462583914475}
+  - component: {fileID: 4523762462583914476}
   m_Layer: 0
-  m_Name: Shader Manager
+  m_Name: Particle Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3225511874275735039
+--- !u!4 &4523762462583914475
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3225511874275735025}
+  m_GameObject: {fileID: 4523762462583914477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.645109, y: -1.9350433, z: 2.0381813}
+  m_LocalPosition: {x: 1.1586456, y: -6.8828926, z: 67.749664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3225511874275735038
+--- !u!114 &4523762462583914476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3225511874275735025}
+  m_GameObject: {fileID: 4523762462583914477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 421068fe75912a5439fb2c66d734a895, type: 3}
+  m_Script: {fileID: 11500000, guid: 3338f70b23e8c8b4f9dcc7fc4de93cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialList:
+  particleSystems:
   - name: 
-    material: {fileID: 0}
-    color1: {r: 1, g: 0, b: 0, a: 0}
-    color2: {r: 0, g: 1, b: 0, a: 0}
-    smoothness: 0.5
-    speed: 1
-    imageIndex: 0
-    images: []
-    control: 0
-    localtime: 0
+    system: {fileID: 0}
+    renderer: {fileID: 0}
+    size: 0.2
+    speed: 0.1
+    amount: 0.5
+    lifetime: 0.5
+    overridematerial: {fileID: 0}
+    toggle: 1

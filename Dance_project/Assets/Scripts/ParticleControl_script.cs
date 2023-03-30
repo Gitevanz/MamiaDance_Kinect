@@ -73,6 +73,7 @@ public class ParticleControl_script : MonoBehaviour
         [Range(0, 1f)] public float size;
         [Range(0, 1f)] public float speed;
         [Range(0, 1f)] public float amount;
+        public bool poofmultiplier;
         [Range(0, 1f)] public float lifetime;
         public Material overridematerial;
 
@@ -84,10 +85,11 @@ public class ParticleControl_script : MonoBehaviour
         public void UpdateValues()
         {
             // Go through all variables and update
-            main.startSize = size * 5f;
-            main.simulationSpeed = speed * 100f;
-            main.startLifetime = lifetime * 20f;
-            emission.rateOverTime = amount * 100f;
+            main.startSize = size * 10f;
+            main.simulationSpeed = speed * 10f;
+            main.startLifetime = lifetime * 10f;
+            emission.rateOverTime = amount * 10f;
+            if (poofmultiplier) emission.rateOverTime = amount * 100000;
             emission.enabled = toggle;
         }
     }
