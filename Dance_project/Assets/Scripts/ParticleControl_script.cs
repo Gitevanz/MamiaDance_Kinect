@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,13 +11,13 @@ public class ParticleControl_script : MonoBehaviour
     void Awake()
     {
         // Initialize list elements
-        foreach (var particleSystemInList in particleSystems)
+        foreach (var systems in particleSystems)
         {
             // Set up modules
-            particleSystemInList.InitializeModules();
+            systems.InitializeModules();
 
             // Pass the ParticleData variables to particle system
-            particleSystemInList.UpdateValues();
+            systems.UpdateValues();
         }
     }
 
@@ -27,9 +27,18 @@ public class ParticleControl_script : MonoBehaviour
         // Update all variables to all systems
         // Optimize? Mark changed variables if you want to optimize and only update those
 
-        foreach (var systemData in particleSystems)
+        foreach (var systems in particleSystems)
         {
-            systemData.UpdateValues();
+            systems.UpdateValues();
+        }
+    }
+
+    // Update particle system name in list when something in inspector is updated
+    private void OnValidate()
+    {
+        for (int i = 0; i < particleSystems.Count; i++)
+        {
+            particleSystems[i].name = particleSystems[i].system.name;
         }
     }
 
@@ -42,45 +51,44 @@ public class ParticleControl_script : MonoBehaviour
     [System.Serializable]
     public class ParticleData
     {
-        public string id;
+        [HideInInspector] public string name;
         public ParticleSystem system;
 
-
-        // Particle system modules neede for the variables to change
+        // Particle system modules needed for the variables to change
         public ParticleSystem.MainModule main;
         public ParticleSystem.EmissionModule emission;
-        public ParticleSystem.ShapeModule shape;
+        [HideInInspector] public ParticleSystemRenderer renderer;
 
         // Run this only once in Awake
         public void InitializeModules()
         {
             main = system.main;
             emission = system.emission;
-            shape = system.shape;
-
-            // Use particle system's values as base?
-            size = main.startSize.constant;
-            lifetime = main.startLifetime.constant;
+            renderer = system.GetComponent<ParticleSystemRenderer>();
+            if (overridematerial != null) renderer.material = overridematerial;
         }
 
 
         // Variables to change. Hide in inspector if you want to drive this from elsewhere? [HideInInspector]
-        public float size;
-        public float lifetime;
+        [Range(0, 1f)] public float size;
+        [Range(0, 1f)] public float speed;
+        [Range(0, 1f)] public float amount;
+        [Range(0, 1f)] public float lifetime;
+        public Material overridematerial;
 
-        // Implement these:
-        public float brightness;
-        public float amount;
-        public Color color;
-        public float toggle; // on or off like boolean
+        
+        public bool toggle; // on or off like boolean 
         
 
         // Run this every time values are changed (or Update() if you're lazy)
         public void UpdateValues()
         {
             // Go through all variables and update
-            main.startSize = size;
-            main.startLifetime = lifetime;
+            main.startSize = size * 5f;
+            main.simulationSpeed = speed * 100f;
+            main.startLifetime = lifetime * 20f;
+            emission.rateOverTime = amount * 100f;
+            emission.enabled = toggle;
         }
     }
 }

@@ -52,7 +52,7 @@ public class Shader_Controller : MonoBehaviour
         public Material material; // Input for the material to control
         public Color color1; // Primary color control
         public Color color2; // Secondary color control
-        public float smoothness; // Roughness control
+        [Range(0, 1f)] public float smoothness; // Roughness control
         public float speed; // Change speed of shader's local time
         public int imageIndex; // Choose which image to use in shader
         public List<Texture> images; // Input images
