@@ -1126,7 +1126,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_OutputChannel": 1
+    "m_OutputChannel": 0
 }
 
 {
@@ -3882,16 +3882,16 @@
     "m_Value": 0.0,
     "m_SerializableColorKeys": [
         {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0,
-            "w": 0.05882352963089943
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 0.0
         },
         {
             "x": 1.0,
             "y": 1.0,
             "z": 1.0,
-            "w": 0.9764705896377564
+            "w": 1.0
         }
     ],
     "m_SerializableAlphaKeys": [
@@ -3948,9 +3948,9 @@
             "w": 0.0
         },
         {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0,
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
             "w": 1.0
         }
     ],
@@ -7074,10 +7074,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1659.0,
-            "y": -364.0000305175781,
+            "x": 1766.0,
+            "y": -364.0,
             "width": 208.0,
-            "height": 336.9998779296875
+            "height": 337.0
         }
     },
     "m_Slots": [
