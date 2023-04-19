@@ -237,6 +237,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
+    - _control: 1
     m_Colors:
     - _1_color: {r: 0, g: 0.8793845, b: 1, a: 0}
     - _2_color: {r: 0.09789959, g: 0.6818402, b: 0.8301887, a: 0}

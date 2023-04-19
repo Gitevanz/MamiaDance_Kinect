@@ -57,6 +57,5 @@ public class Shader_Controller : MonoBehaviour
 
         // A time variable is kept for separate shader speed control
         [HideInInspector] public float localtime;
-
     }
 }
