@@ -39,6 +39,16 @@
   <Fixture>
    <Manufacturer>Generic</Manufacturer>
    <Model>Generic</Model>
+   <Mode>1 Channel</Mode>
+   <ID>2</ID>
+   <Name>Slider</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>1</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Generic</Manufacturer>
+   <Model>Generic</Model>
    <Mode>3 Channel</Mode>
    <ID>10</ID>
    <Name>Colro</Name>
@@ -254,7 +264,7 @@
      <Font>Default</Font>
     </Appearance>
     <SliderMode ValueDisplayStyle="Exact" ClickAndGoType="None" Monitor="false">Level</SliderMode>
-    <Level LowLimit="0" HighLimit="255" Value="228">
+    <Level LowLimit="0" HighLimit="255" Value="106">
      <Channel Fixture="11">0</Channel>
     </Level>
     <Playback>
@@ -852,8 +862,25 @@
      <Font>Default</Font>
     </Appearance>
     <SliderMode ValueDisplayStyle="Exact" ClickAndGoType="None" Monitor="false">Level</SliderMode>
-    <Level LowLimit="0" HighLimit="255" Value="126">
+    <Level LowLimit="0" HighLimit="255" Value="191">
      <Channel Fixture="11">2</Channel>
+    </Level>
+    <Playback>
+     <Function>4294967295</Function>
+    </Playback>
+   </Slider>
+   <Slider Caption="Slider" ID="15" WidgetStyle="Slider" InvertedAppearance="false">
+    <WindowState Visible="True" X="90" Y="700" Width="60" Height="200"/>
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <SliderMode ValueDisplayStyle="Exact" ClickAndGoType="None" Monitor="false">Level</SliderMode>
+    <Level LowLimit="0" HighLimit="255" Value="188">
+     <Channel Fixture="2">0</Channel>
     </Level>
     <Playback>
      <Function>4294967295</Function>
