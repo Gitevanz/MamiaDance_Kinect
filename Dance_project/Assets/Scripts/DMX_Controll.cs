@@ -30,6 +30,7 @@ public class DMX_Controll : MonoBehaviour
                 target.value = Mapper(dmxClient.DMXdata[target.correctedchannel], 0, 255, target.minimumvalue, target.maximumvalue);
             }
         }
+        UpdateValues();
     }
 
     // When the inspector is changed, the target object is checked for changes and all target controls are updated
@@ -82,7 +83,6 @@ public class DMX_Controll : MonoBehaviour
             for (int i = 0; i < control.targets.Count; i++)
             {
                 control.targets[i].name = NameMaker(targetobjecttype, fieldamount, i);
-                Debug.Log("i is " + i);
             }
 
         }
@@ -101,31 +101,29 @@ public class DMX_Controll : MonoBehaviour
         {3, "Color 2, RED"},
         {4, "Color 2, GREEN"},
         {5, "Color 2, BLUE"},
-        {6, "Smoothness"},
-        {7, "Speed"},
-        {8, "Image index"},
-        {9, "Control"},
-        {20, "Size"},
-        {21, "Speed"},
-        {22, "Amount"},
-        {23, "Poof"},
-        {24, "Lifetime"},
-        {25, "Toggle"}
+        {6, "smoothness"},
+        {7, "speed"},
+        {8, "imageIndex"},
+        {9, "control"},
+        {20, "size"},
+        {21, "speed"},
+        {22, "amount"},
+        {23, "poofmultiplier"},
+        {24, "lifetime"},
+        {25, "toggle"}
 
     };
+   
+    public List<int> GetListIndex (int targetindex, int fieldamount)
+    {
+        int majorindex = Mathf.FloorToInt(targetindex / fieldamount);
+        int subindex = targetindex - majorindex * fieldamount;
+        return new List<int> { majorindex , subindex };
+    }
 
     public string NameMaker(string type, int fieldamount, int index)
     {
-        int fieldindex = 1;
-        int fieldsubtract;
-        int nameindex;
-        for (int i = 0; index + 1 > fieldamount * fieldindex; i++)
-        {
-            fieldindex = i;
-        }
-        fieldsubtract = (fieldindex - 1) * fieldamount;
-        nameindex = index - fieldsubtract;
-        Debug.Log(nameindex);
+        int nameindex = GetListIndex(index, fieldamount)[1];
         if (type == "particle")
         {
             return NameDictionary[nameindex + 20];
@@ -142,26 +140,50 @@ public class DMX_Controll : MonoBehaviour
     }
 
     // Update all values to corresponding fields in the manager
-    /*public void UpdateValues()
+    public void UpdateValues()
     {
+        int fieldamount = 0;
         foreach (var control in controls)
         {
             if (control.targetObject.name == "Particle Manager")
             {
-                foreach (var list in controls.)
+                fieldamount = 6;
+                for (int j = 0; j < control.targets.Count; j++)
                 {
-
+                    int major = GetListIndex(j, fieldamount)[0];
+                    int minor = GetListIndex(j, fieldamount)[1];
+                    Debug.Log("List index: " + major + ", " + minor);
                 }
             }
             if (control.targetObject.name == "Shader Manager")
             {
-                foreach (var targetProperties in control.targetObject.GetComponent<Shader_Controller>().materialList)
+                fieldamount = 10;
+                for (int j = 0; j < control.targets.Count; j++)
                 {
-                    targetProperties.GetType().GetField("smoothness").SetValue(targetProperties, control.targets[0].value);
+                    int major = GetListIndex(j, fieldamount)[0];
+                    int minor = GetListIndex(j, fieldamount)[1];
+                    if (control.targets[j].name.Contains("color"))
+                    {
+                        /*if (controls[i].targets[j].name.Contains("1"))
+                        {
+                            controls[i].targetObject.GetComponent<Shader_Controller>().materialList[i].GetType().GetField("color1").SetValue(controls[i].targets[j].name, new Color(controls[i].targets[j].value/255f, controls[i].targets[j + 1].value / 255f, controls[i].targets[j + 2].value / 255f));
+                        } else
+                        {
+                            controls[i].targetObject.GetComponent<Shader_Controller>().materialList[i].GetType().GetField("color2").SetValue(controls[i].targets[j].name, new Color(controls[i].targets[j].value / 255f, controls[i].targets[j + 1].value / 255f, controls[i].targets[j + 2].value / 255f));
+                        }*/ 
+                        Debug.Log("List index: " + major + ", " + minor);
+                        j++;
+                        j++;
+                        Debug.Log("color skipped");
+                    } else
+                    {
+                        control.targetObject.GetComponent<Shader_Controller>().materialList[major].GetType().GetProperty(NameDictionary[minor]).SetValue(NameDictionary[minor], control.targets[j].value);
+                        Debug.Log("List index: " + major + ", " + minor);
+                    }
                 }
             }
         }
-    }*/
+    }
 
     // Initializing data types
     // Made public in 'controls' list. ControllerData takes 'Particle manager' or 'Shader manager' as input in 'targetObjects'

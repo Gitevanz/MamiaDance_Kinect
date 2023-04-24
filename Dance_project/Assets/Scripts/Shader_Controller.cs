@@ -23,7 +23,6 @@ public class Shader_Controller : MonoBehaviour
             mat.material.SetColor("_1_color", mat.color1);
             mat.material.SetColor("_2_color", mat.color2);
             mat.material.SetFloat("_smoothness", mat.smoothness);
-            Debug.Log(mat.images.Count);
             if (mat.images.Count > mat.imageIndex && mat.imageIndex > -1) mat.material.SetTexture("_image", mat.images[mat.imageIndex]);
             mat.material.SetFloat("_control", mat.control);
 
