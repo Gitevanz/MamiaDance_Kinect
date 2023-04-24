@@ -24,6 +24,7 @@ public class Shader_Controller : MonoBehaviour
             mat.material.SetColor("_2_color", mat.color2);
             mat.material.SetFloat("_smoothness", mat.smoothness);
             if (mat.images.Count > mat.imageIndex && mat.imageIndex > -1) mat.material.SetTexture("_image", mat.images[mat.imageIndex]);
+            mat.material.SetInt("_index", mat.imageIndex);
             mat.material.SetFloat("_control", mat.control);
 
 
@@ -53,6 +54,31 @@ public class Shader_Controller : MonoBehaviour
         public int imageIndex; // Choose which image to use in shader
         public List<Texture> images; // Input images
         public float control; // Reserve variable for shader specific controls
+        public void SetInput (float value, int index)
+        {
+            switch (index) {
+                case 0:
+                    color1.r = value / 255f; break;
+                case 1:
+                    color1.g = value / 255f; break;
+                case 2:
+                    color1.b = value / 255f; break;
+                case 3:
+                    color2.r = value / 255f; break;
+                case 4:
+                    color2.g = value / 255f; break;
+                case 5:
+                    color2.b = value / 255f; break;
+                case 6:
+                    smoothness = value; break;
+                case 7:
+                    speed = value; break;
+                case 8:
+                    imageIndex = Mathf.FloorToInt(value); break;
+                case 9:
+                    control = Mathf.FloorToInt(value); break;
+            }
+        }
 
         // A time variable is kept for separate shader speed control
         [HideInInspector] public float localtime;

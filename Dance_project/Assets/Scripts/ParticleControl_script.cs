@@ -92,5 +92,23 @@ public class ParticleControl_script : MonoBehaviour
             if (poofmultiplier) emission.rateOverTime = amount * 100000;
             emission.enabled = toggle;
         }
+        public void SetInput(float value, int index)
+        {
+            switch (index)
+            {
+                case 20:
+                    size = value; break;
+                case 21:
+                    speed = value; break;
+                case 22:
+                    amount = value; break;
+                case 23:
+                    if (value >= 0.5) poofmultiplier = true; else poofmultiplier = false; break;
+                case 24:
+                    lifetime = value; break;
+                case 25:
+                    if (value >= 0.5) toggle = true; else toggle = false; break;
+            }
+        }
     }
 }
