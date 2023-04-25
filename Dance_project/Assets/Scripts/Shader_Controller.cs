@@ -76,7 +76,7 @@ public class Shader_Controller : MonoBehaviour
                 case 8:
                     imageIndex = Mathf.FloorToInt(value); break;
                 case 9:
-                    control = Mathf.FloorToInt(value); break;
+                    control = value; break;
             }
         }
 

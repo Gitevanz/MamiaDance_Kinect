@@ -126,11 +126,11 @@ public class DMX_Controll : MonoBehaviour
         int controlindex = GetListIndex(index, fieldamount)[0];
         if (type == "particle")
         {
-            return controlindex + ". " + NameDictionary[nameindex + 20];
+            return controlindex + 1 + ". " + NameDictionary[nameindex + 20];
         }
         else if (type == "shader")
         {
-            return controlindex + ". " + NameDictionary[nameindex];
+            return controlindex + 1 + ". " + NameDictionary[nameindex];
         }
         else
         {
@@ -166,7 +166,7 @@ public class DMX_Controll : MonoBehaviour
                     if (control.targets[i].DmxChannel != -1)
                     {
                         // Injecting values to the correct properties is done in the manager script, which contains a switch to interpret the 'minor' index
-                        control.targetObject.GetComponent<ParticleControl_script>().particleSystems[major].SetInput(control.targets[i].value, minor);
+                        control.targetObject.GetComponent<ParticleControl_script>().particleSystems[major].SetInput(control.targets[i].value, minor + 20);
                     }
                 }
             }
@@ -183,7 +183,7 @@ public class DMX_Controll : MonoBehaviour
                     {
                         // Injecting values to the correct properties is done in the manager script, which contains a switch to interpret the 'minor' index
                             control.targetObject.GetComponent<Shader_Controller>().materialList[major].SetInput(control.targets[i].value, minor);
-                            Debug.Log("List index: " + major + ", " + minor);
+                            
                     }
                 }
             }
