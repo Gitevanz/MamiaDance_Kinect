@@ -244,7 +244,7 @@ Material:
     - _image: 0
     - _index: 0
     - _smoothness: 0
-    - _time: 6.872853
+    - _time: 0
     m_Colors:
     - _1_color: {r: 0, g: 0, b: 0, a: 0}
     - _2_color: {r: 0, g: 0, b: 0, a: 0}

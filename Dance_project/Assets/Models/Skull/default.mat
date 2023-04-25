@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: default
-  m_Shader: {fileID: -6465566751694194690, guid: c28bb37ced75c094faa86ea19e772801,
+  m_Shader: {fileID: -6465566751694194690, guid: da3bb97ce6b9cd1479fb15968df7e447,
     type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -220,7 +220,14 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
+    - _control: 0
+    - _image: 1
+    - _index: 1
+    - _smoothness: 0
+    - _time: 2.55
     m_Colors:
+    - _1_color: {r: 0.9056604, g: 0.03844783, b: 0.03844783, a: 0}
+    - _2_color: {r: 0, g: 1, b: 0.13914847, a: 0}
     - _BASE_COLOR: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     - _BaseColor: {r: 0.56062776, g: 0.56062776, b: 0.56062776, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

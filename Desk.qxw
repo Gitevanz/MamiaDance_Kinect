@@ -4,16 +4,18 @@
  <Creator>
   <Name>Q Light Controller Plus</Name>
   <Version>4.12.6</Version>
-  <Author>leorin</Author>
+  <Author>LeoRinne</Author>
  </Creator>
  <Engine Autostart="10">
   <InputOutputMap>
    <Universe Name="Universe 1" ID="0" Passthrough="True">
-    <Output Plugin="ArtNet" UID="10.72.33.120" Line="0"/>
+    <Output Plugin="ArtNet" UID="127.0.0.1" Line="0"/>
    </Universe>
    <Universe Name="Universe 2" ID="1">
     <Input Plugin="Loopback" UID="Loopback 2" Line="1"/>
-    <Output Plugin="Loopback" UID="Loopback 2" Line="1"/>
+    <Output Plugin="Loopback" UID="Loopback 2" Line="1">
+     <PluginParameters UniverseChannels="1"/>
+    </Output>
    </Universe>
    <Universe Name="Universe 3" ID="2"/>
    <Universe Name="Universe 4" ID="3"/>
@@ -88,6 +90,16 @@
    <Address>401</Address>
    <Channels>1</Channels>
   </Fixture>
+  <Fixture>
+   <Manufacturer>Generic</Manufacturer>
+   <Model>Generic</Model>
+   <Mode>1 Channel</Mode>
+   <ID>7</ID>
+   <Name>2. control</Name>
+   <Universe>0</Universe>
+   <Address>19</Address>
+   <Channels>1</Channels>
+  </Fixture>
   <Function ID="2" Type="Scene" Name="sand">
    <Speed FadeIn="0" FadeOut="0" Duration="0"/>
    <FixtureVal ID="0">0,255</FixtureVal>
@@ -110,7 +122,7 @@
   </Function>
   <Function ID="5" Type="Scene" Name="loopback1" Path="zloopbacks">
    <Speed FadeIn="0" FadeOut="0" Duration="0"/>
-   <FixtureVal ID="3">0,255,1,0</FixtureVal>
+   <FixtureVal ID="3">0,255</FixtureVal>
   </Function>
   <Function ID="7" Type="Scene" Name="drop sand">
    <Speed FadeIn="0" FadeOut="0" Duration="0"/>
@@ -418,6 +430,17 @@
     <Action>Toggle</Action>
     <Intensity Adjust="False">100</Intensity>
    </Button>
+   <AudioTriggers BarsNumber="16" Caption="" ID="17">
+    <WindowState Visible="True" X="170" Y="190" Width="300" Height="200"/>
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <VolumeBar Name="Volume Bar" Type="1" MinThreshold="51" MaxThreshold="204" Divisor="1" Index="1000"/>
+   </AudioTriggers>
   </Frame>
   <Properties>
    <Size Width="1920" Height="1080"/>
