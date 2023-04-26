@@ -176,8 +176,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 15.381882
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 2.1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1072,6 +1072,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1300440019}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &554448731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3225511874275735038, guid: 618c5d0be39955841a6a62d279e45d54,
+    type: 3}
+  m_PrefabInstance: {fileID: 1300440019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554448728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421068fe75912a5439fb2c66d734a895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &713122199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,6 +1267,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 740525667}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &740525671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4523762462583914476, guid: ff6f25b419dd8f04c8a508ed708fab8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 740525667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740525668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3338f70b23e8c8b4f9dcc7fc4de93cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &807103976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,7 +1401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &903974060
 Transform:
   m_ObjectHideFlags: 0
@@ -1731,7 +1755,7 @@ PrefabInstance:
     - target: {fileID: 8622242745730148321, guid: ddbc26942f73b414daee8b7ae34de08a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.003
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8622242745730148321, guid: ddbc26942f73b414daee8b7ae34de08a,
         type: 3}
@@ -1815,7 +1839,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 6.2402663
+  m_Intensity: 293.4888
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1858,7 +1882,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 6, y: 6}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 6500
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 10}
   m_UseBoundingSphereOverride: 1
@@ -1892,7 +1916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 705.7575
+  m_Intensity: 33192.8
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -2142,6 +2166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
+      propertyPath: controls.Array.data[1].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
       propertyPath: objects.Array.data[0].target
       value: 
       objectReference: {fileID: 1957384887}
@@ -2192,6 +2221,11 @@ PrefabInstance:
       objectReference: {fileID: 740525668}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
+      propertyPath: controls.Array.data[0].targetObjectShader
+      value: 
+      objectReference: {fileID: 554448731}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
       propertyPath: controls.Array.data[0].targets.Array.size
       value: 30
       objectReference: {fileID: 0}
@@ -2200,6 +2234,11 @@ PrefabInstance:
       propertyPath: controls.Array.data[1].targets.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[1].targetObjectParticle
+      value: 
+      objectReference: {fileID: 740525671}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
       propertyPath: controls.Array.data[0].targets.Array.data[0].name
@@ -2403,6 +2442,16 @@ PrefabInstance:
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
       propertyPath: controls.Array.data[0].targets.Array.data[29].name
+      value: 3. control
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[30].name
+      value: 3. control
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[31].name
       value: 3. control
       objectReference: {fileID: 0}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
@@ -2642,6 +2691,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[30].DmxChannel
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[31].DmxChannel
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
       propertyPath: controls.Array.data[0].targets.Array.data[0].maximumvalue
       value: 255
       objectReference: {fileID: 0}
@@ -2848,6 +2907,16 @@ PrefabInstance:
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
         type: 3}
       propertyPath: controls.Array.data[0].targets.Array.data[29].maximumvalue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[30].maximumvalue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,
+        type: 3}
+      propertyPath: controls.Array.data[0].targets.Array.data[31].maximumvalue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6837445344405342360, guid: 116c5b096fcf54a42a61852c917828bb,

@@ -84,8 +84,7 @@ namespace ArtDotNet
         private void Update()
         {
 			if (packet != null && packet.IsValid && packet.RawData.Length == 530)
-			{
-				Debug.Log("Received From:" + packet.RawData.Length + " DMX " + DMXdata.Length);				
+			{			
 				for (int i = 0; i < 511; i++)
 				{
 					DMXdata[i] = packet.RawData[i];

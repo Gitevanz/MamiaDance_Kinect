@@ -43,20 +43,20 @@ public class DMX_Controll : MonoBehaviour
     {
         int targetinteger;
         int fieldamount = 0;
-        string targetobjecttype = "none";
         foreach (var control in controls)
         {
+            control.init();
             // Check for the manager type in the Target Object field
-            if (control.targetObject.name == "Particle Manager")
+            if (control.type == controllerdatatype.particle)
             {
-                targetobjecttype = "particle";
                 // Every particle system has 6 fields to control in realtime
                 fieldamount = 6;
                 // Check and correct if there is a disparity in the lengths of target object list length and the target list in DMX Controll inspector
-                targetinteger = Mathf.Abs(control.targetObject.GetComponent<ParticleControl_script>().particleSystems.Count * fieldamount - control.targets.Count);
+                targetinteger = Mathf.Abs(control.targetObjectParticle.particleSystems.Count * fieldamount - control.targets.Count);
                 for (int i = 0; i < targetinteger; i++)
                 {
-                    if (control.targetObject.GetComponent<ParticleControl_script>().particleSystems.Count * fieldamount > control.targets.Count)
+                    if (control.targetObjectParticle.particleSystems.Count * fieldamount > control.targets.Count)
+
                     {
                         control.targets.Add(new ControllerData.TargetFields { });
                     }
@@ -66,16 +66,15 @@ public class DMX_Controll : MonoBehaviour
                     }
                 }
             }
-            if (control.targetObject.name == "Shader Manager")
+            if (control.type == controllerdatatype.shader)
             {
-                targetobjecttype = "shader";
                 // Every shader has 5 fields to control in realtime
                 fieldamount = 10;
                 // Check and correct if there is a disparity in the lengths of target object list length and the target list in DMX Controll inspector
-                targetinteger = Mathf.Abs(control.targetObject.GetComponent<Shader_Controller>().materialList.Count * fieldamount - control.targets.Count);
+                targetinteger = Mathf.Abs(control.targetObjectShader.materialList.Count * fieldamount - control.targets.Count);
                 for (int i = 0; i < targetinteger; i++)
                 {
-                    if (control.targetObject.GetComponent<Shader_Controller>().materialList.Count * fieldamount > control.targets.Count)
+                    if (control.targetObjectShader.materialList.Count * fieldamount > control.targets.Count)
                     {
                         control.targets.Add(new ControllerData.TargetFields { });
                     }
@@ -87,7 +86,7 @@ public class DMX_Controll : MonoBehaviour
             }
             for (int i = 0; i < control.targets.Count; i++)
             {
-                control.targets[i].name = NameMaker(targetobjecttype, fieldamount, i);
+                control.targets[i].name = NameMaker(control.type, fieldamount, i);
             }
 
         }
@@ -120,15 +119,15 @@ public class DMX_Controll : MonoBehaviour
     };
 
     // Uses the NameDictionary dictionary to populate the 'name' field for each target to make it easier to find the right target property in the inspector
-    public string NameMaker(string type, int fieldamount, int index)
+    public string NameMaker(controllerdatatype type, int fieldamount, int index)
     {
         int nameindex = GetListIndex(index, fieldamount)[1];
         int controlindex = GetListIndex(index, fieldamount)[0];
-        if (type == "particle")
+        if (type == controllerdatatype.particle)
         {
             return controlindex + 1 + ". " + NameDictionary[nameindex + 20];
         }
-        else if (type == "shader")
+        else if (type == controllerdatatype.shader)
         {
             return controlindex + 1 + ". " + NameDictionary[nameindex];
         }
@@ -155,7 +154,7 @@ public class DMX_Controll : MonoBehaviour
         foreach (var control in controls)
         {
             // Checking the type of the manager
-            if (control.targetObject.name == "Particle Manager")
+            if (control.type == controllerdatatype.particle)
             {
                 fieldamount = 6;
                 for (int i = 0; i < control.targets.Count; i++)
@@ -166,12 +165,12 @@ public class DMX_Controll : MonoBehaviour
                     if (control.targets[i].DmxChannel != -1)
                     {
                         // Injecting values to the correct properties is done in the manager script, which contains a switch to interpret the 'minor' index
-                        control.targetObject.GetComponent<ParticleControl_script>().particleSystems[major].SetInput(control.targets[i].value, minor + 20);
+                        control.targetObjectParticle.particleSystems[major].SetInput(control.targets[i].value, minor + 20);
                     }
                 }
             }
             // Checking the type of the manager
-            if (control.targetObject.name == "Shader Manager")
+            if (control.type == controllerdatatype.shader)
             {
                 fieldamount = 10;
                 for (int i = 0; i < control.targets.Count; i++)
@@ -182,7 +181,7 @@ public class DMX_Controll : MonoBehaviour
                     if (control.targets[i].DmxChannel != -1)
                     {
                         // Injecting values to the correct properties is done in the manager script, which contains a switch to interpret the 'minor' index
-                            control.targetObject.GetComponent<Shader_Controller>().materialList[major].SetInput(control.targets[i].value, minor);
+                            control.targetObjectShader.materialList[major].SetInput(control.targets[i].value, minor);
                             
                     }
                 }
@@ -198,8 +197,19 @@ public class DMX_Controll : MonoBehaviour
     {
         [HideInInspector]
         public string name;
+        public controllerdatatype type;
         public GameObject targetObject;
+        public Shader_Controller targetObjectShader;
+        public ParticleControl_script targetObjectParticle;
         public List<TargetFields> targets;
+
+        public void init()
+        {
+            targetObjectShader = targetObject.GetComponent<Shader_Controller>();
+            targetObjectParticle = targetObject.GetComponent<ParticleControl_script>();
+            if (targetObjectShader != null) type = controllerdatatype.shader;
+            else if (targetObjectParticle != null) type = controllerdatatype.particle;
+        }
 
         // TargetFields initializes the values of the target manager and is made public in 'targets' list
         // DMX channel for every controllable value is also defined in TargetFields as 'DmxChannel'
@@ -227,4 +237,9 @@ public class DMX_Controll : MonoBehaviour
         public int DmxChannel;
         public int correctedchannel { get { return DmxChannel + 17; } }
     }
+}
+public enum controllerdatatype
+{
+    shader,
+    particle
 }
